@@ -39,6 +39,124 @@
   }, { rootMargin: '-42% 0px -48%', threshold: 0 });
   qsa('.tracked-section').forEach((section) => sectionObserver.observe(section));
 
+  // ==========================================
+  // Spotify Releases, Player Drawer & Live Streams
+  // ==========================================
+  const releaseCards = qsa('.release-card');
+  const totalStreamsEl = qs('#total-streams-val');
+  
+  // Base streams data for live ticker
+  const streamData = [
+    { id: 1, base: 842910, current: 842910, el: qs('#streams-count-1') },
+    { id: 2, base: 1420680, current: 1420680, el: qs('#streams-count-2') },
+    { id: 3, base: 4180500, current: 4180500, el: qs('#streams-count-3') }
+  ];
+
+  let totalStreams = streamData.reduce((sum, item) => sum + item.current, 0);
+
+  const formatStreams = (num) => {
+    return num.toLocaleString('en-US');
+  };
+
+  // Toggle Player Drawer & Embed Spotify
+  const toggleReleasePlayer = (card) => {
+    const drawer = qs('.release-player-drawer', card);
+    const isOpen = card.classList.contains('is-active');
+
+    // Close all other drawers
+    releaseCards.forEach(c => {
+      if (c !== card) {
+        c.classList.remove('is-active');
+        const otherDrawer = qs('.release-player-drawer', c);
+        if (otherDrawer) otherDrawer.hidden = true;
+      }
+    });
+
+    if (isOpen) {
+      card.classList.remove('is-active');
+      if (drawer) drawer.hidden = true;
+    } else {
+      card.classList.add('is-active');
+      if (drawer) {
+        drawer.hidden = false;
+        const container = qs('.spotify-iframe-container', drawer);
+        if (container && !container.querySelector('iframe')) {
+          const embedUrl = container.dataset.embedUrl || card.dataset.embedSrc;
+          const iframe = document.createElement('iframe');
+          iframe.src = embedUrl;
+          iframe.width = '100%';
+          iframe.height = '152';
+          iframe.frameBorder = '0';
+          iframe.allow = 'autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture';
+          iframe.loading = 'lazy';
+          iframe.title = 'Spotify Player';
+          container.appendChild(iframe);
+        }
+      }
+    }
+  };
+
+  releaseCards.forEach(card => {
+    const row = qs('.release-card-row', card);
+    row?.addEventListener('click', (e) => {
+      if (e.target.closest('a')) return;
+      toggleReleasePlayer(card);
+    });
+
+    card.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        if (e.target === card || e.target.closest('.release-open-btn') || e.target.closest('.release-card-row')) {
+          e.preventDefault();
+          toggleReleasePlayer(card);
+        }
+      }
+    });
+  });
+
+  // Dynamic Spotify OEmbed Sync (fetches official covers dynamically from Spotify)
+  const syncSpotifyCovers = async () => {
+    releaseCards.forEach(async (card) => {
+      const spotifyUrl = card.dataset.spotifyUrl;
+      if (!spotifyUrl) return;
+      try {
+        const oembedUrl = `https://open.spotify.com/oembed?url=${encodeURIComponent(spotifyUrl)}`;
+        const res = await fetch(oembedUrl);
+        if (res.ok) {
+          const data = await res.json();
+          if (data.thumbnail_url) {
+            const img = qs('.release-cover', card);
+            if (img) img.src = data.thumbnail_url;
+          }
+        }
+      } catch (e) {
+        // Fallback already rendered from Spotify CDN in HTML
+      }
+    });
+  };
+  syncSpotifyCovers();
+
+  // Real-Time Live Streams Simulation Ticker
+  const startLiveStreamsTicker = () => {
+    setInterval(() => {
+      const randomIndex = Math.floor(Math.random() * streamData.length);
+      const increment = Math.floor(Math.random() * 3) + 1;
+      const target = streamData[randomIndex];
+
+      target.current += increment;
+      totalStreams += increment;
+
+      if (target.el) {
+        target.el.textContent = formatStreams(target.current);
+        target.el.classList.add('stream-increment-flash');
+        setTimeout(() => target.el.classList.remove('stream-increment-flash'), 800);
+      }
+      if (totalStreamsEl) {
+        totalStreamsEl.textContent = formatStreams(totalStreams);
+      }
+    }, 4500);
+  };
+  startLiveStreamsTicker();
+
   // Date Selectors
   const releaseDay = qs('[data-release-day]');
   const releaseMonth = qs('[data-release-month]');
