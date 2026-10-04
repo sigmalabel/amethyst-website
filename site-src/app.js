@@ -49,7 +49,7 @@
   const streamData = [
     { id: 1, base: 34346, current: 34346, el: qs('#streams-count-1') },
     { id: 2, base: 29379, current: 29379, el: qs('#streams-count-2') },
-    { id: 3, base: 1344, current: 1344, el: qs('#streams-count-3') }
+    { id: 3, base: 30994, current: 30994, el: qs('#streams-count-3') }
   ];
 
   let totalStreams = streamData.reduce((sum, item) => sum + item.current, 0);
