@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#08050d" />
+    <meta name="description" content="Amethyst — Independent electronic record label pushing phonk, Brazilian funk, hardtekk, and underground club music." />
+    <title>Amethyst — Independent Record Label</title>
+    <link rel="icon" type="image/png" href="./assets/amethyst-favicon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <canvas id="crystal-canvas" aria-hidden="true"></canvas>
+    <div class="grain" aria-hidden="true"></div>
+    <div class="cursor-glow" aria-hidden="true"></div>
+
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="Amethyst home">
+        <img class="brand-logo" src="./assets/amethyst-logo.png" alt="Amethyst Logo" />
+        <span>AMETHYST</span>
+      </a>
+      <nav aria-label="Primary navigation">
+        <a href="#cuts">Releases</a>
+        <a class="nav-cta" href="#submit">Submit music</a>
+      </nav>
+    </header>
+
+    <aside class="rail" aria-label="Page sections">
+      <a class="active" href="#top"><span>01</span> Origin</a>
+      <a href="#cuts"><span>02</span> Releases</a>
+      <a href="#submit"><span>03</span> Submit</a>
+    </aside>
+
+    <main>
+      <section class="hero tracked-section" id="top" data-section="top">
+        <div class="eyebrow reveal"><i></i> INDEPENDENT RECORD LABEL / EST. 2026</div>
+        <h1 class="hero-title" aria-label="Raw energy, cut for the underground.">
+          <span class="title-line reveal">Raw energy,</span>
+          <span class="title-line reveal delay-1">cut for the <em>underground.</em></span>
+        </h1>
+        <p class="hero-copy reveal delay-2">
+          Amethyst is an independent imprint pushing phonk, Brazilian funk, hardtekk, and experimental electronic club music. Built for producers and listeners who value heavy low-end and distinct sound design.
+        </p>
+        <div class="hero-actions reveal delay-3">
+          <a class="button primary" href="#submit">Submit your demo</a>
+          <a class="button ghost" href="#cuts">Explore releases</a>
+        </div>
+        <div class="genre-line reveal delay-3" aria-label="Genres">
+          <span>Phonk</span><span>Brazilian Funk</span><span>Hardtekk</span><span>Electronic</span>
+        </div>
+        <div class="scroll-cue" aria-hidden="true"><span></span> SCROLL TO EXPLORE</div>
+      </section>
+
+      <section class="cuts tracked-section" id="cuts" data-section="cuts">
+        <div class="section-kicker reveal"><span>02 / DISCOGRAPHY</span><span>FEATURED RELEASES</span></div>
+        <div class="cuts-heading">
+          <h2 class="reveal">Heavy rotations &amp; signature releases.</h2>
+          <p class="reveal delay-1">Stream recent singles, collaborative EPs, and underground anthems signed to the imprint.</p>
+        </div>
+        <div class="release-list">
+          <article class="release-card reveal" tabindex="0">
+            <span class="release-index">A / 001</span>
+            <div><p>AMETHYST RELEASES</p><h3>VIOLET VELOCITY</h3></div>
+            <span class="release-genre">BRAZILIAN FUNK</span><span class="release-year">2026</span><span class="release-open">＋</span>
+          </article>
+          <article class="release-card reveal" tabindex="0">
+            <span class="release-index">A / 002</span>
+            <div><p>AMETHYST RELEASES</p><h3>NIGHT SIGNAL</h3></div>
+            <span class="release-genre">HARDTEKK</span><span class="release-year">2026</span><span class="release-open">＋</span>
+          </article>
+          <article class="release-card reveal" tabindex="0">
+            <span class="release-index">A / 003</span>
+            <div><p>AMETHYST RELEASES</p><h3>GLASS MEMORY</h3></div>
+            <span class="release-genre">PHONK</span><span class="release-year">2026</span><span class="release-open">＋</span>
+          </article>
+        </div>
+      </section>
+
+      <section class="submit tracked-section" id="submit" data-section="submit">
+        <div class="submit-intro reveal">
+          <span class="portal-tag">A&amp;R DEMO SUBMISSIONS</span>
+          <h2>Send your unreleased tracks directly to A&amp;R.</h2>
+          <p>We review every demo sent to Amethyst. If your track matches the label's sound, our A&amp;R team will reach out to discuss release scheduling, distribution, and promotional pitching.</p>
+          <div class="availability"><span></span> ACCEPTING SUBMISSIONS</div>
+          <ul>
+            <li>Provide a direct streaming or download link (Google Drive, Dropbox, private SoundCloud).</li>
+            <li>List all collaborating artists, producers, and legal names.</li>
+            <li>Our team reviews demos weekly and responds to shortlisted tracks.</li>
+          </ul>
+        </div>
+
+        <form class="submission-panel reveal delay-1" id="submission-form" novalidate>
+          <div class="form-heading">
+            <span>01 / ARTIST DETAILS</span><h3>Artist information.</h3><p>Enter your primary stage name, legal details for contracts, and profile links.</p>
+          </div>
+          <div id="artists-container">
+            <section class="artist-card" data-artist data-index="0">
+              <div class="artist-card-head"><strong>Artist #1</strong><button class="remove-artist" type="button" aria-label="Remove artist" style="display:none;">Remove</button></div>
+              <div class="field-grid">
+                <label>Artist name *<input type="text" name="artist_name_0" placeholder="e.g. DJ Amethyst" required /></label>
+                <label>Legal name *<input type="text" name="legal_name_0" placeholder="Full legal name" required /></label>
+                <div class="platform-field wide" data-platform="email">
+                  <div class="platform-label-row">
+                    <span>Artist email *</span>
+                    <label class="availability-switch" style="display:none;" for="alt_account_0">
+                      <input type="checkbox" id="alt_account_0" name="alt_account_0" data-alt-toggle role="switch" />
+                      <span class="switch-ui"></span>
+                      <b>That's my alt account</b>
+                    </label>
+                  </div>
+                  <input type="email" name="artist_email_0" id="artist_email_0" placeholder="artist@example.com" required />
+                </div>
+                <div class="platform-field" data-platform="spotify">
+                  <div class="platform-label-row">
+                    <span>Spotify profile</span>
+                    <label class="availability-switch" for="no_spotify_0">
+                      <input type="checkbox" id="no_spotify_0" name="no_spotify_0" data-platform-toggle="spotify" />
+                      <span class="switch-ui"></span>
+                      <b>I don't have one</b>
+                    </label>
+                  </div>
+                  <input data-platform-input="spotify" data-artist-search="spotify" type="text" inputmode="url" autocomplete="off" aria-label="Spotify artist search or profile URL" aria-autocomplete="list" aria-expanded="false" placeholder="Type an artist name or paste a Spotify URL" />
+                </div>
+                <div class="platform-field" data-platform="apple">
+                  <div class="platform-label-row">
+                    <span>Apple Music profile</span>
+                    <label class="availability-switch" for="no_apple_0">
+                      <input type="checkbox" id="no_apple_0" name="no_apple_0" data-platform-toggle="apple" />
+                      <span class="switch-ui"></span>
+                      <b>I don't have one</b>
+                    </label>
+                  </div>
+                  <input data-platform-input="apple" data-artist-search="apple" type="text" inputmode="url" autocomplete="off" aria-label="Apple Music artist search or profile URL" aria-autocomplete="list" aria-expanded="false" placeholder="Type an artist name or paste an Apple Music URL" />
+                </div>
+              </div>
+            </section>
+          </div>
+          <button class="add-artist" id="add-artist" type="button"><span>＋</span> Add another artist</button>
+          <div class="form-divider"><span>02 / RELEASE DETAILS</span></div>
+          <div class="field-grid">
+            <label>Release title *<input type="text" name="song_title" placeholder="Track or EP title" required /></label>
+            <label>Primary genre *
+              <select name="genre" required><option value="">Select genre</option><option value="Phonk">Phonk</option><option value="Brazilian Funk">Brazilian Funk</option><option value="Hardtekk">Hardtekk</option><option value="Electronic">Electronic</option><option value="Other">Other</option></select>
+            </label>
+            <fieldset class="date-field wide">
+              <legend>Preferred release date *</legend>
+              <div class="date-selector" aria-label="Preferred release date">
+                <label><span>DD</span><select data-release-day aria-label="Release day"><option value="">DD</option></select></label>
+                <i aria-hidden="true">/</i>
+                <label><span>MM</span><select data-release-month aria-label="Release month"><option value="">MM</option></select></label>
+                <i aria-hidden="true">/</i>
+                <label class="date-year"><span>YYYY</span><select data-release-year aria-label="Release year"></select></label>
+              </div>
+              <small>DD / MM / YYYY — select your target release date.</small>
+            </fieldset>
+            <label class="wide">Master link *<input type="url" name="release_link" placeholder="Google Drive, Dropbox, Mediafire, or SoundCloud private link" required /></label>
+            <label class="wide">Creative notes<textarea name="notes" rows="4" placeholder="Tell us about the track, collaborators, and release vision (optional)."></textarea></label>
+          </div>
+          <button class="button primary submit-track-btn" type="submit" id="submitBtn"><span id="submitBtnText">Send Demo to Amethyst</span> <span>→</span></button>
+          <p class="form-footnote">Submissions are reviewed directly by the Amethyst &amp; Sigma Label LLC A&amp;R team.</p>
+        </form>
+      </section>
+    </main>
+
+    <footer>
+      <a class="brand" href="#top"><img class="brand-logo" src="./assets/amethyst-logo.png" alt="Amethyst Logo" /><span>AMETHYST</span></a>
+      <p>Independent electronic imprint. Powered by Sigma Label LLC.</p>
+      <span>© 2026 AMETHYST</span>
+    </footer>
+
+    <!-- Custom Modal -->
+    <div id="amethyst-modal" class="amethyst-modal" hidden>
+      <div class="amethyst-modal-backdrop" id="modal-backdrop"></div>
+      <div class="amethyst-modal-card">
+        <h3 id="modal-title">Notice</h3>
+        <p id="modal-message"></p>
+        <button type="button" id="modal-close" class="button primary">Got it</button>
+      </div>
+    </div>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
