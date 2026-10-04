@@ -45,11 +45,11 @@
   const releaseCards = qsa('.release-card');
   const totalStreamsEl = qs('#total-streams-val');
   
-  // Base streams data for live ticker
+  // Base streams data for live ticker (verified from Spotify)
   const streamData = [
-    { id: 1, base: 842910, current: 842910, el: qs('#streams-count-1') },
-    { id: 2, base: 1420680, current: 1420680, el: qs('#streams-count-2') },
-    { id: 3, base: 4180500, current: 4180500, el: qs('#streams-count-3') }
+    { id: 1, base: 34346, current: 34346, el: qs('#streams-count-1') },
+    { id: 2, base: 29379, current: 29379, el: qs('#streams-count-2') },
+    { id: 3, base: 1344, current: 1344, el: qs('#streams-count-3') }
   ];
 
   let totalStreams = streamData.reduce((sum, item) => sum + item.current, 0);
@@ -57,6 +57,38 @@
   const formatStreams = (num) => {
     return num.toLocaleString('en-US');
   };
+
+  const updateStreamsDisplay = () => {
+    streamData.forEach(item => {
+      if (item.el) item.el.textContent = formatStreams(item.current);
+    });
+    if (totalStreamsEl) totalStreamsEl.textContent = formatStreams(totalStreams);
+  };
+
+  // Dynamically load real stream counts from streams.json
+  const loadRealStreams = async () => {
+    try {
+      const res = await fetch(`./streams.json?t=${Date.now()}`);
+      if (res.ok) {
+        const data = await res.json();
+        if (data.tracks && Array.isArray(data.tracks)) {
+          data.tracks.forEach((track, index) => {
+            if (streamData[index] && track.streams > 0) {
+              streamData[index].current = track.streams;
+              streamData[index].base = track.streams;
+            }
+          });
+          if (data.total_streams > 0) {
+            totalStreams = data.total_streams;
+          }
+          updateStreamsDisplay();
+        }
+      }
+    } catch (e) {
+      // Use pre-loaded HTML numbers
+    }
+  };
+  loadRealStreams();
 
   // Toggle Player Drawer & Embed Spotify
   const toggleReleasePlayer = (card) => {

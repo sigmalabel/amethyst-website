@@ -1,0 +1,35 @@
+{
+  "updated_at": "2026-10-04T12:07:25.516Z",
+  "total_streams": 65069,
+  "formatted_total": "65,069",
+  "tracks": [
+    {
+      "id": "1",
+      "track_id": "6ULNS7oJFnrmnzBOaXrcuf",
+      "title": "she don't want me",
+      "artist": "HEATIT",
+      "streams": 34346,
+      "formatted_streams": "34,346",
+      "spotify_url": "https://open.spotify.com/track/6ULNS7oJFnrmnzBOaXrcuf"
+    },
+    {
+      "id": "2",
+      "track_id": "0fziDUsyfHK6d0sbupkxaW",
+      "title": "BURNING STAR",
+      "artist": "HEATIT // YOUNGPLXYA",
+      "streams": 29379,
+      "formatted_streams": "29,379",
+      "spotify_url": "https://open.spotify.com/track/0fziDUsyfHK6d0sbupkxaW"
+    },
+    {
+      "id": "3",
+      "track_id": "7FqVHksygFksRHo8XU0Bp7",
+      "title": "MONTAGEM XOLO",
+      "artist": "ANMANE",
+      "streams": 1344,
+      "formatted_streams": "1,344",
+      "spotify_url": "https://open.spotify.com/track/7FqVHksygFksRHo8XU0Bp7",
+      "album_url": "https://open.spotify.com/album/0UpRh1CvKSMZf8COHwq2un"
+    }
+  ]
+}

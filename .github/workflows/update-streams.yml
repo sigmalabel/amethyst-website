@@ -1,0 +1,46 @@
+name: Update Spotify Stream Counts
+
+on:
+  schedule:
+    # Runs automatically every 24 hours (at 00:00 UTC)
+    - cron: '0 0 * * *'
+  workflow_dispatch: # Allows manual 1-click trigger in the Actions tab
+
+permissions:
+  contents: write
+
+jobs:
+  scrape-spotify-streams:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install Puppeteer with Chromium
+        run: |
+          npm install puppeteer
+
+      - name: Scrape live Spotify stream counts
+        run: |
+          node scripts/update-streams.mjs
+
+      - name: Commit and push updated stream counts
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add streams.json site-src/streams.json
+          if git diff --staged --quiet; then
+            echo "No stream count changes detected. Everything is up to date."
+          else
+            git commit -m "chore(streams): auto-update Spotify stream counts [skip ci]"
+            git push origin main
+          fi
