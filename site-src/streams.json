@@ -1,7 +1,7 @@
 {
-  "updated_at": "2026-10-22T02:41:19.434Z",
-  "total_streams": 104715,
-  "formatted_total": "104,715",
+  "updated_at": "2026-10-23T02:38:56.947Z",
+  "total_streams": 105124,
+  "formatted_total": "105,124",
   "tracks": [
     {
       "id": "1",
@@ -9,8 +9,8 @@
       "title": "she don't want me",
       "artist": "HEATIT",
       "type": "single",
-      "streams": 35680,
-      "formatted_streams": "35,680",
+      "streams": 35739,
+      "formatted_streams": "35,739",
       "spotify_url": "https://open.spotify.com/track/6ULNS7oJFnrmnzBOaXrcuf"
     },
     {
@@ -19,8 +19,8 @@
       "title": "BURNING STAR",
       "artist": "HEATIT // YOUNGPLXYA",
       "type": "single",
-      "streams": 29718,
-      "formatted_streams": "29,718",
+      "streams": 29735,
+      "formatted_streams": "29,735",
       "spotify_url": "https://open.spotify.com/track/0fziDUsyfHK6d0sbupkxaW"
     },
     {
@@ -29,8 +29,8 @@
       "title": "MONTAGEM XOLO",
       "artist": "ANMANE",
       "type": "ep",
-      "streams": 39317,
-      "formatted_streams": "39,317",
+      "streams": 39650,
+      "formatted_streams": "39,650",
       "spotify_url": "https://open.spotify.com/album/0UpRh1CvKSMZf8COHwq2un",
       "ep_breakdown": [
         {
@@ -48,20 +48,20 @@
         {
           "id": "6ajVptR4Vv9XfILOWf8YIW",
           "name": "MONTAGEM XOLO - Slowed",
-          "streams": 15497,
-          "formatted": "15,497"
+          "streams": 15559,
+          "formatted": "15,559"
         },
         {
           "id": "74AThgedQi5uJFtGaWpiu1",
           "name": "MONTAGEM XOLO - Super Slowed",
-          "streams": 6594,
-          "formatted": "6,594"
+          "streams": 6620,
+          "formatted": "6,620"
         },
         {
           "id": "5x01M5yHTtvirGZaoLNW7M",
           "name": "MONTAGEM XOLO - Ultra Slowed",
-          "streams": 15811,
-          "formatted": "15,811"
+          "streams": 16056,
+          "formatted": "16,056"
         }
       ]
     }
