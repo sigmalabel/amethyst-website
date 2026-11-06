@@ -1,7 +1,7 @@
 {
-  "updated_at": "2026-11-05T04:22:14.380Z",
-  "total_streams": 110412,
-  "formatted_total": "110,412",
+  "updated_at": "2026-11-06T04:19:45.771Z",
+  "total_streams": 110757,
+  "formatted_total": "110,757",
   "tracks": [
     {
       "id": "1",
@@ -9,8 +9,8 @@
       "title": "she don't want me",
       "artist": "HEATIT",
       "type": "single",
-      "streams": 36370,
-      "formatted_streams": "36,370",
+      "streams": 36416,
+      "formatted_streams": "36,416",
       "spotify_url": "https://open.spotify.com/track/6ULNS7oJFnrmnzBOaXrcuf"
     },
     {
@@ -19,8 +19,8 @@
       "title": "BURNING STAR",
       "artist": "HEATIT // YOUNGPLXYA",
       "type": "single",
-      "streams": 29898,
-      "formatted_streams": "29,898",
+      "streams": 29901,
+      "formatted_streams": "29,901",
       "spotify_url": "https://open.spotify.com/track/0fziDUsyfHK6d0sbupkxaW"
     },
     {
@@ -29,15 +29,15 @@
       "title": "MONTAGEM XOLO",
       "artist": "ANMANE",
       "type": "ep",
-      "streams": 44144,
-      "formatted_streams": "44,144",
+      "streams": 44440,
+      "formatted_streams": "44,440",
       "spotify_url": "https://open.spotify.com/album/0UpRh1CvKSMZf8COHwq2un",
       "ep_breakdown": [
         {
           "id": "7FqVHksygFksRHo8XU0Bp7",
           "name": "MONTAGEM XOLO",
-          "streams": 1450,
-          "formatted": "1,450"
+          "streams": 1453,
+          "formatted": "1,453"
         },
         {
           "id": "1o4cvjZZarlPOjWrymeCE4",
@@ -48,20 +48,20 @@
         {
           "id": "6ajVptR4Vv9XfILOWf8YIW",
           "name": "MONTAGEM XOLO - Slowed",
-          "streams": 16351,
-          "formatted": "16,351"
+          "streams": 16412,
+          "formatted": "16,412"
         },
         {
           "id": "74AThgedQi5uJFtGaWpiu1",
           "name": "MONTAGEM XOLO - Super Slowed",
-          "streams": 7076,
-          "formatted": "7,076"
+          "streams": 7098,
+          "formatted": "7,098"
         },
         {
           "id": "5x01M5yHTtvirGZaoLNW7M",
           "name": "MONTAGEM XOLO - Ultra Slowed",
-          "streams": 19267,
-          "formatted": "19,267"
+          "streams": 19477,
+          "formatted": "19,477"
         }
       ]
     }
